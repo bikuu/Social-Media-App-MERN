@@ -17,15 +17,12 @@
   align-items: center;
   margin-top: 5px;
   gap: 0.5rem;
-}
-.Post .postReact > img {
-  width: 30px;
-  height: 30px;
+  color: #61dafb;
   cursor: pointer;
 }
-.Post .postReact > img:nth-child(3) {
-  width: 25px;
-  height: 25px;
+.Post .postReact > img {
+  width: 28px;
+  height: 28px;
 }
 
 .Post .detail span:nth-child(1) {
