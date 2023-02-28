@@ -1,0 +1,96 @@
+.NewProfileSide {
+  flex: 8.5;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  gap: 1rem;
+  border-radius: 1.5rem;
+  overflow-x: clip;
+  background: var(--cardColor);
+}
+.NewProfileSide .profile-container {
+  display: flex;
+}
+.NewProfileImages {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.NewProfileImages img:nth-child(1) {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+.NewProfileImages img:nth-child(2) {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  object-fit: cover;
+  position: absolute;
+  bottom: -2rem;
+  left: 5rem;
+  box-shadow: var(--profileShadow);
+}
+
+.NewProfileName {
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+  margin-top: 2rem;
+  margin-left: 6rem;
+  position: relative;
+}
+.NewProfileName > div {
+  display: flex;
+  flex-direction: column;
+}
+.NewProfileName .name:nth-child(1) {
+  font-size: 25px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.NewbottomLine {
+  width: 100%;
+  border: 1px solid var(--hrColor);
+}
+.Newfollow {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 10px;
+}
+.Newfollow .count:nth-child(1) {
+  font-weight: bold;
+  margin-right: 5px;
+}
+.Newfollow .count:nth-child(2) {
+  color: var(--gray);
+  font-size: 13px;
+}
+.Newfollow .NewmidLine {
+  height: 8px;
+  border: 2px solid var(--hrColor);
+}
+
+.NewProfileName .quote {
+  width: 50%;
+  position: absolute;
+  text-align: center;
+  line-height: 2;
+  top: 0;
+  left: 30%;
+}
+
+.NewProfileName .logOut {
+  position: absolute;
+  right: 2rem;
+  bottom: 0;
+}
+
+.logOut .logout-btn {
+  padding: 10px;
+}

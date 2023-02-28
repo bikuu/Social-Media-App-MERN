@@ -34,6 +34,7 @@
   margin-top: 3rem;
   gap: 10px;
 }
+
 .ProfileName span:nth-child(1) {
   font-weight: bold;
 }
