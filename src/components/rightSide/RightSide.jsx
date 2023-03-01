@@ -1,4 +1,3 @@
-import React from "react";
 import TrendingCard from "../trendingCard/TrendingCard";
 import "./RightSide.css";
 

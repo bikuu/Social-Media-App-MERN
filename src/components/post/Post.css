@@ -2,6 +2,7 @@
   padding: 1rem;
   background: var(--cardColor);
   gap: 1rem;
+  
 }
 
 .Post > img {

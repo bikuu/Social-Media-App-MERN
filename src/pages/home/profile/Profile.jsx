@@ -1,4 +1,3 @@
-import React from "react";
 import "./Profile.css";
 import RightSide from "./../../../components/rightSide/RightSide";
 import NewProfileSide from "../../../components/newProfileSide/NewProfileSide";

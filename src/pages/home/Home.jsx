@@ -1,4 +1,3 @@
-import React from "react";
 import PostSide from "../../components/postSide/PostSide";
 import ProfileSides from "../../components/profileSide/ProfileSides";
 import RightSide from "../../components/rightSide/RightSide";

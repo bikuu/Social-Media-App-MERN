@@ -1,7 +1,10 @@
 .rightSide {
   flex: 3.5;
   display: flex;
+  height: 80vh;
   flex-direction: column;
+  position: sticky;
+  top: 7%;
 }
 .rightSide .ads {
   width: 100%;
@@ -22,7 +25,7 @@
 @keyframes slide {
   0%,
   100% {
-    transform: translateX(-70%) rotate(0deg)  ;
+    transform: translateX(-70%) rotate(0deg);
   }
   50% {
     transform: translateX(70%) rotate(360deg);

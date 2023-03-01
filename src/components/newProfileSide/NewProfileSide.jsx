@@ -1,9 +1,8 @@
-import React from "react";
 import "./NewProfileSide.css";
 import Cover from "./../../img/cover.jpg";
 import Profile from "./../../img/chocolate.jpg";
 import PostSide from "../postSide/PostSide";
-import ProfileEdit from "../profileEdit/ProfileEdit";
+import ProfileInfo from "./../profileInfo/ProfileInfo";
 const NewProfileCard = () => {
   return (
     <div className="NewProfileSide">
@@ -37,7 +36,7 @@ const NewProfileCard = () => {
       </div>
       <div className="NewbottomLine"></div>
       <div className="profile-container">
-        <ProfileEdit />
+        <ProfileInfo />
         <PostSide />
       </div>
     </div>

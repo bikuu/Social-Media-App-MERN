@@ -63,7 +63,7 @@
 .topbarIconItem {
   cursor: pointer;
   position: relative;
-  color: #61dafb;
+  color: var(--iconColor);
 }
 
 .topbarIconBadge {

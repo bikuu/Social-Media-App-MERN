@@ -1,4 +1,3 @@
-import React from "react";
 import "./Posts.css";
 import { PostsData } from "./../../dummyData/PostsData";
 import Post from "./../post/Post";

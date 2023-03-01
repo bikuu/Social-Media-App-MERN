@@ -1,4 +1,3 @@
-import React from "react";
 import "./TrendingCard.css";
 import { TrendingData } from "./../../dummyData/TrendingData";
 const TrendingCard = () => {

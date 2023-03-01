@@ -1,4 +1,3 @@
-import React from "react";
 import "./FollowersCard.css";
 import { Followers } from "./../../dummyData/FollowersData";
 const FollowersCard = () => {

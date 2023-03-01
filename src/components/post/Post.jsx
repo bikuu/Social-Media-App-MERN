@@ -1,4 +1,3 @@
-import React from "react";
 import "./Post.css";
 import Heart from "./../../Icons/heart.png";
 import HeartFilled from "./../../Icons/heart-filled.png";

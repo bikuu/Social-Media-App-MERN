@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import { useState, useRef } from "react";
 import "./PostShare.css";
 import ProfileImg from "./../../img/chocolate.jpg";
 import {

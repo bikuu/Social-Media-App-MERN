@@ -1,4 +1,3 @@
-import React from "react";
 import "./ProfileCard.css";
 import Cover from "./../../img/cover.jpg";
 import Profile from "./../../img/chocolate.jpg";
