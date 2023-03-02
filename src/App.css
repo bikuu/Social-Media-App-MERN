@@ -20,7 +20,12 @@
   background: #f3f3f3;
   padding: 1rem;
 }
-
+::-webkit-scrollbar {
+  display: none;
+}
+.hidden {
+  display: none;
+}
 .btn {
   display: flex;
   align-items: center;
@@ -37,8 +42,4 @@
   color: var(--orange);
   background: transparent;
   border: 1px solid var(--orange);
-}
-
-::-webkit-scrollbar {
-  display: none;
 }

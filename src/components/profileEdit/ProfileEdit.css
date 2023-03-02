@@ -1,6 +1,5 @@
 .ProfileEdit {
   flex: 3.5;
-  height: 80vh;
   position: sticky;
   top: 7%;
   display: flex;
@@ -9,20 +8,32 @@
 .ProfileEdit .edit-wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: flex-start;
   gap: 1rem;
 }
-.ProfileEdit .edit-wrapper .edit-list {
-  width: 100%;
+
+.ProfileEdit .edit-wrapper .edit-section {
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  margin-left: 10px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-left: 3rem;
 }
-.edit-wrapper .edit-list > span:nth-child(1) {
-  margin-right: 20px;
-  color: var(--iconColor);
+.ProfileEdit .edit-wrapper .edit-section > h2 {
+  margin-left: -3rem;
+}
+.ProfileEdit .edit-wrapper .edit-section > span {
+  color: rgb(59, 178, 97);
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+.ProfileEdit .edit-wrapper .edit-section > input {
+  width: 150%;
+  padding: 10px 15px 5px 15px;
+  border-right: none;
+  border-left: none;
+  outline: none;
+  margin-top: 2px;
 }
 .ProfileEdit .pfSave-btn {
   width: 20%;
@@ -39,7 +50,7 @@
   transition: all 1s;
 }
 
-.ProfileEdit .pfEdit-btn:hover {
+.ProfileEdit .pfSave-btn:hover {
   transform: scale(1.2);
 }
 .ProfileEdit .bottom-line {

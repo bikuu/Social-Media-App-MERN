@@ -1,8 +1,12 @@
-.ProfileInfo {
+.Profile-Container {
   flex: 3.5;
-  height: 80vh;
   position: sticky;
   top: 7%;
+  height: 90vh;
+}
+.ProfileInfo {
+  /* height: 80vh; */
+
   display: flex;
   flex-direction: column;
 }

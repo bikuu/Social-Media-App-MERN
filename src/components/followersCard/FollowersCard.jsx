@@ -3,10 +3,10 @@ import { Followers } from "./../../dummyData/FollowersData";
 const FollowersCard = () => {
   return (
     <div className="FollowersCard">
-      <h3>My Followers</h3>
+      <h2>My Followers</h2>
       {Followers.map((follower, id) => {
         return (
-          <div className="follower">
+          <div className="follower" key={id}>
             <div>
               <img src={follower.img} alt="" className="followerImg" />
               <div className="name">
