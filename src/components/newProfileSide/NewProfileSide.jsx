@@ -1,9 +1,13 @@
+import { useRef, useState } from "react";
 import "./NewProfileSide.css";
 import Cover from "./../../img/cover.jpg";
 import Profile from "./../../img/chocolate.jpg";
 import PostSide from "../postSide/PostSide";
 import ProfileInfo from "./../profileInfo/ProfileInfo";
+import ProfileEdit from "./../profileEdit/ProfileEdit";
 const NewProfileCard = () => {
+  const [editProfile, seteditProfile] = useState(false);
+  const profileRef = useRef(null);
   return (
     <div className="NewProfileSide">
       <div className="NewProfileImages">
@@ -36,7 +40,21 @@ const NewProfileCard = () => {
       </div>
       <div className="NewbottomLine"></div>
       <div className="profile-container">
-        <ProfileInfo />
+        <div
+          className={`profileShowEdit ${
+            editProfile ? "showProfileEdit" : "showProfileInfo"
+          }`}
+          ref={profileRef}
+        >
+          {editProfile ? (
+            <ProfileEdit
+              seteditProfile={seteditProfile}
+              profileRef={profileRef}
+            />
+          ) : (
+            <ProfileInfo seteditProfile={seteditProfile} />
+          )}
+        </div>
         <PostSide />
       </div>
     </div>

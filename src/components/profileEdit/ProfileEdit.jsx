@@ -1,9 +1,14 @@
 import React from "react";
 import "./ProfileEdit.css";
 
-const ProfileEdit = () => {
+const ProfileEdit = ({ seteditProfile, profileRef }) => {
+  const handleSave = (e) => {
+    e.preventDefault();
+    seteditProfile(false);
+    profileRef.current.scrollIntoView({ behavior: "smooth" });
+  };
   return (
-    <div className="ProfileEdit">
+    <div className="ProfileEdit ">
       <div className="edit-wrapper">
         <div className="edit-section">
           <h2>General Information</h2>
@@ -41,7 +46,9 @@ const ProfileEdit = () => {
           <input type="text" id="fullName" value={"Web Developer"} />
         </div>
       </div>
-      <button className="pfSave-btn">Save</button>
+      <button className="pfSave-btn" onClick={handleSave}>
+        Save
+      </button>
       <div className="bottom-line"></div>
     </div>
   );

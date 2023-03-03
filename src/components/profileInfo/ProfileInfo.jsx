@@ -1,4 +1,3 @@
-import React from "react";
 import "./ProfileInfo.css";
 import {
   UilBag,
@@ -6,14 +5,15 @@ import {
   UilLocationPoint,
   UilHeart,
 } from "@iconscout/react-unicons";
-import ProfileEdit from "../profileEdit/ProfileEdit";
 import FollowersCard from "./../followersCard/FollowersCard";
-const ProfileInfo = () => {
+const ProfileInfo = ({ seteditProfile }) => {
   const handleEdit = (e) => {
     e.preventDefault();
+    seteditProfile(true);
   };
+
   return (
-    <div className="Profile-Container ">
+    <div className="Profile-Container">
       <div className="ProfileInfo">
         <h2>Info</h2>
         <div className="info-wrapper">
@@ -62,9 +62,6 @@ const ProfileInfo = () => {
         <div className="bottom-line"></div>
       </div>
       <FollowersCard />
-      <div className="hidden">
-        <ProfileEdit />
-      </div>
     </div>
   );
 };

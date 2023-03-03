@@ -11,6 +11,33 @@
 .NewProfileSide .profile-container {
   display: flex;
 }
+.NewProfileSide .profileShowEdit {
+  flex: 3;
+  /* height: 100%; */
+}
+.showProfileEdit {
+  animation: slide-up 1s ease-in-out forwards;
+}
+.showProfileInfo {
+  animation: slide-bottom 1s ease-in-out forwards;
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+@keyframes slide-bottom {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
 .NewProfileImages {
   position: relative;
   display: flex;
