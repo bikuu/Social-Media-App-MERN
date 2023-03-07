@@ -5,7 +5,9 @@
 /.pnp
 .pnp.js
 /social-media-backend/node_modules
-/social-media-backend/env
+/social-media-backend/.env.development.local
+/social-media-backend/.env.local
+/social-media-backend/.env.production.local
 # testing
 /coverage
 
