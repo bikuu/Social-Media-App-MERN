@@ -1,4 +1,4 @@
-import UserModel from "../Modals/usersModal.js";
+import UserModel from "../Models/usersModel.js";
 import bcrypt from "bcrypt";
 //Registering a user
 export const registerUser = async (req, res) => {
