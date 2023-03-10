@@ -5,6 +5,7 @@ import Profile from "./pages/profile/Profile";
 import Auth from "./pages/auth/Auth";
 
 function App() {
+
   return (
     <div className="App">
       <Topbar />
