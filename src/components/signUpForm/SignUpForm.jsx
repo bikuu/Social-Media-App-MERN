@@ -6,7 +6,7 @@ import {
   UilLinkedinAlt,
 } from "@iconscout/react-unicons";
 import { useDispatch } from "react-redux";
-import { logIn, signUp } from "../../api/AuthRequest";
+import { logIn, signUp } from "../../api/ApiCalls";
 import { setUser } from "../../redux/slice/userSlice";
 const SignUpForm = () => {
   const [isSignUp, setSignUp] = useState(false);
@@ -32,7 +32,7 @@ const SignUpForm = () => {
     });
   };
 
-  const handleChange = (e) => {
+  const handleChange = async (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
 
@@ -43,7 +43,8 @@ const SignUpForm = () => {
       return (await signUp(data)) && setSignUp((prev) => !prev);
     } else {
       const getData = await logIn(data);
-      await dispatch(setUser(getData.data));
+      dispatch(setUser(getData.data));
+      localStorage.setItem("user", JSON.stringify({ ...getData.data }));
     }
   };
   return (
