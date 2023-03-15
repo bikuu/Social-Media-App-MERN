@@ -11,6 +11,8 @@ import UploadImage from "./Routes/UploadRoute.js";
 
 const app = express();
 
+app.use(express.static("public"));
+app.use("/images", express.static("images"));
 //MiddleWare
 app.use(cors());
 app.use(bodyParser.json({ limit: "30mb", extened: true }));
