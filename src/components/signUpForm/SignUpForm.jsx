@@ -5,13 +5,16 @@ import {
   UilGoogle,
   UilLinkedinAlt,
 } from "@iconscout/react-unicons";
-import { useDispatch } from "react-redux";
-import { logIn, signUp } from "../../api/ApiCalls";
-import { setUser } from "../../redux/slice/userSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { logIn, signUp } from "../../redux/actions/AuthActions";
 const SignUpForm = () => {
   const [isSignUp, setSignUp] = useState(false);
   const [confirmPass, setConfirmPass] = useState(false);
+  const navigate = useNavigate();
   const dispatch = useDispatch();
+  const loading = useSelector((state) => state.authReducer.loading);
+
   const [data, setData] = useState({
     firstname: "",
     lastname: "",
@@ -32,19 +35,17 @@ const SignUpForm = () => {
     });
   };
 
-  const handleChange = async (e) => {
+  const handleChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     if (isSignUp) {
       if (data.password !== data.confPassword) return setConfirmPass(true);
-      return (await signUp(data)) && setSignUp((prev) => !prev);
+      return dispatch(signUp(data, navigate));
     } else {
-      const getData = await logIn(data);
-      dispatch(setUser(getData.data));
-      localStorage.setItem("user", JSON.stringify({ ...getData.data }));
+      dispatch(logIn(data, navigate));
     }
   };
   return (
@@ -145,8 +146,8 @@ const SignUpForm = () => {
                 )}
               </>
             )}
-            <button type="submit" className="btn signUp-btn">
-              {isSignUp ? "Sign Up" : "Sign In"}
+            <button type="submit" className="btn signUp-btn" disabled={loading}>
+              {loading ? "Loading..." : isSignUp ? "SignUp" : "Login"}
             </button>
           </form>
         </div>

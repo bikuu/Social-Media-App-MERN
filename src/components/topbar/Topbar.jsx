@@ -1,4 +1,3 @@
-
 import "./topbar.css";
 import {
   UilSearch,
@@ -7,6 +6,7 @@ import {
   UilBell,
   UilCommentDots,
 } from "@iconscout/react-unicons";
+import { Link } from "react-router-dom";
 
 export default function Topbar() {
   return (
@@ -27,7 +27,10 @@ export default function Topbar() {
       </div>
       <div className="topbarRight">
         <div className="topbarIconItem">
-          <UilEstate size="30" />
+          <Link to={"../home"}>
+            {" "}
+            <UilEstate size="30" />
+          </Link>
         </div>
         <div className="topbarIconItem">
           <UilCommentDots size="30" />

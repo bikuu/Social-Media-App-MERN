@@ -1,10 +1,10 @@
 import "./Profile.css";
 import RightSide from "../../components/rightSide/RightSide";
-import NewProfileSide from "../../components/newProfileSide/NewProfileSide";
+import ProfilePageSide from "../../components/profilePageSide/ProfilePageSide";
 const Profile = () => {
   return (
     <div className="Profile">
-      <NewProfileSide />
+      <ProfilePageSide />
       <RightSide />
     </div>
   );

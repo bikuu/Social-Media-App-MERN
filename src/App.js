@@ -4,16 +4,10 @@ import Topbar from "./components/topbar/Topbar";
 import Profile from "./pages/profile/Profile";
 import Auth from "./pages/auth/Auth";
 import { Routes, Route, Navigate } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import { setUser } from "./redux/slice/userSlice";
-function App() {
-  let dispatch = useDispatch();
-  const isUser = localStorage.getItem("user");
+import { useSelector } from "react-redux";
 
-  if (isUser) {
-    dispatch(setUser(JSON.parse(isUser)));
-  }
-  const user = useSelector((state) => state.user.data);
+function App() {
+  const user = useSelector((state) => state.authReducer.authData);
 
   return (
     <div className="App">
@@ -30,6 +24,10 @@ function App() {
         <Route
           path="/auth"
           element={user ? <Navigate to="../home" /> : <Auth />}
+        />
+        <Route
+          path="/profile/:id"
+          element={user ? <Profile /> : <Navigate to="../auth" />}
         />
       </Routes>
     </div>

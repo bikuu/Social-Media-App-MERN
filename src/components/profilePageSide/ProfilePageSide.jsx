@@ -1,15 +1,21 @@
 import { useRef, useState } from "react";
-import "./NewProfileSide.css";
+import "./ProfilePageSide.css";
 import Cover from "./../../img/cover.jpg";
 import Profile from "./../../img/chocolate.jpg";
 import PostSide from "../postSide/PostSide";
-import ProfileInfo from "./../profileInfo/ProfileInfo";
-import ProfileEdit from "./../profileEdit/ProfileEdit";
-const NewProfileCard = () => {
+import ProfileInfo from "../profileInfo/ProfileInfo";
+import ProfileEdit from "../profileEdit/ProfileEdit";
+import { useDispatch } from "react-redux";
+import { logout } from './../../redux/actions/AuthActions';
+const ProfilePageSide = () => {
+  const dispatch = useDispatch();
   const [editProfile, seteditProfile] = useState(false);
   const profileRef = useRef(null);
+  const handleLogout = () => {
+    dispatch(logout());
+  };
   return (
-    <div className="NewProfileSide">
+    <div className="ProfilePageSide">
       <div className="NewProfileImages">
         <img src={Cover} alt="" />
         <img src={Profile} alt="" />
@@ -35,7 +41,9 @@ const NewProfileCard = () => {
           <p>Wherever I go, Death follows me</p>
         </div>
         <div className="logOut">
-          <button className="btn logout-btn">Log Out</button>
+          <button className="btn logout-btn" onClick={handleLogout}>
+            Log Out
+          </button>
         </div>
       </div>
       <div className="NewbottomLine"></div>
@@ -61,4 +69,4 @@ const NewProfileCard = () => {
   );
 };
 
-export default NewProfileCard;
+export default ProfilePageSide;

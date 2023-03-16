@@ -65,6 +65,11 @@
   position: relative;
   color: var(--iconColor);
 }
+.topbarIconItem > a {
+  cursor: pointer;
+  position: relative;
+  color: var(--iconColor);
+}
 
 .topbarIconBadge {
   width: 15px;

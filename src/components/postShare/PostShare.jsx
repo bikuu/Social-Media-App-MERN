@@ -1,6 +1,5 @@
 import { useState, useRef } from "react";
 import "./PostShare.css";
-import ProfileImg from "./../../img/chocolate.jpg";
 import {
   UilScenery,
   UilPlayCircle,
@@ -9,14 +8,15 @@ import {
   UilTimes,
 } from "@iconscout/react-unicons";
 import { useDispatch, useSelector } from "react-redux";
-import { uploadImage, uploadPost } from "./../../api/ApiCalls";
-import { setPosts } from "../../redux/slice/postSlice";
+import { uploadImage, uploadPost } from "./../../redux/actions/UploadAction";
 const PostShare = () => {
   const [image, setImage] = useState(null);
   const imageRef = useRef();
   const desc = useRef();
   const dispatch = useDispatch();
-  const { user } = useSelector((state) => state.user.data);
+  const { user } = useSelector((state) => state.authReducer.authData);
+  const loading = useSelector((state) => state.postReducer.uploading);
+  const serverPublic = process.env.REACT_APP_PUBLIC_FOLDER;
 
   const onImageChange = (e) => {
     e.preventDefault();
@@ -26,7 +26,7 @@ const PostShare = () => {
     }
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     const newPOst = {
       userId: user._id,
@@ -39,19 +39,25 @@ const PostShare = () => {
       data.append("file", image);
       newPOst.image = filename;
       try {
-        await uploadImage(data);
+        dispatch(uploadImage(data));
       } catch (error) {
         console.log(error);
       }
     }
-    const post = await uploadPost(newPOst);
-    dispatch(setPosts(post.data));
+    dispatch(uploadPost(newPOst));
     setImage(null);
     desc.current.value = "";
   };
   return (
     <div className="PostShare">
-      <img src={ProfileImg} alt="" />
+      <img
+        src={
+          user.profilePicture
+            ? serverPublic + user.profilePicture
+            : serverPublic + "profilePicture.jpg"
+        }
+        alt=""
+      />
       <div>
         <input type="text" placeholder="What's happening ?" ref={desc} />
         <div className="postOptions">
@@ -71,8 +77,12 @@ const PostShare = () => {
           <div className="option" style={{ color: "var(--schedule)" }}>
             <UilSchedule /> Schedule
           </div>
-          <button className="btn ps-btn" onClick={handleSubmit}>
-            Share
+          <button
+            className="btn ps-btn"
+            onClick={handleSubmit}
+            disabled={loading}
+          >
+            {loading ? "uploading" : "Share"}
           </button>
           <div style={{ display: "none" }}>
             <input

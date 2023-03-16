@@ -1,5 +1,5 @@
 .ProfileEdit {
-  flex: 3.5;
+  flex: 3;
   position: sticky;
   top: 7%;
   display: flex;
@@ -18,23 +18,25 @@
   align-items: flex-start;
   gap: 0.5rem;
   margin-left: 3rem;
+  width: 85%;
 }
-.ProfileEdit .edit-wrapper .edit-section > h2 {
+.edit-wrapper .edit-section > h2 {
   margin-left: -3rem;
 }
-.ProfileEdit .edit-wrapper .edit-section > span {
+.edit-wrapper .edit-section > span {
   color: rgb(59, 178, 97);
   font-size: 1.1rem;
   font-weight: 500;
 }
-.ProfileEdit .edit-wrapper .edit-section > input {
-  width: 150%;
+.edit-wrapper .edit-section > input {
+  width: 100%;
   padding: 10px 15px 5px 15px;
   border-right: none;
   border-left: none;
   outline: none;
   margin-top: 2px;
 }
+
 .ProfileEdit .pfSave-btn {
   width: 20%;
   margin-top: 10px;

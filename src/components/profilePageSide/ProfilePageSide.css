@@ -1,4 +1,4 @@
-.NewProfileSide {
+.ProfilePageSide {
   flex: 8.5;
   display: flex;
   flex-direction: column;
@@ -8,10 +8,10 @@
   overflow-x: clip;
   background: var(--cardColor);
 }
-.NewProfileSide .profile-container {
+.ProfilePageSide .profile-container {
   display: flex;
 }
-.NewProfileSide .profileShowEdit {
+.ProfilePageSide .profileShowEdit {
   flex: 3;
   /* height: 100%; */
 }
@@ -19,7 +19,7 @@
   animation: slide-up 1s ease-in-out forwards;
 }
 .showProfileInfo {
-  animation: slide-bottom 1s ease-in-out forwards;
+  animation: slide-bottom 0.1s ease-in-out forwards;
 }
 
 @keyframes slide-up {

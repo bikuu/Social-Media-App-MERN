@@ -18,18 +18,34 @@ const Userschema = mongoose.Schema(
       type: String,
       required: true,
     },
+    age: Number,
+    livesin: String,
+    gender: String,
+    relationship: String,
+    profilePicture: String,
+    coverPicture: String,
+    education: [
+      {
+        degree: String,
+        gradFrom: String,
+        gradDate: Date,
+      },
+    ],
+    work: [
+      {
+        worksAt: String,
+        position: String,
+        experience: String,
+      },
+    ],
+    qualification: [],
+    followers: [],
+    following: [],
+
     isAdmin: {
       type: Boolean,
       default: false,
     },
-    profilePicture: String,
-    coverPicture: String,
-    about: String,
-    livesin: String,
-    worksAt: String,
-    relationship: String,
-    followers: [],
-    following: [],
   },
   { timestamps: true }
 );
