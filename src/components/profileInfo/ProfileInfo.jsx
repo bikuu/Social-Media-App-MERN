@@ -6,7 +6,7 @@ import {
   UilHeart,
 } from "@iconscout/react-unicons";
 import FollowersCard from "./../followersCard/FollowersCard";
-import {  useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getUser } from "../../api/ApiCalls";
@@ -14,8 +14,9 @@ import { getUser } from "../../api/ApiCalls";
 const ProfileInfo = ({ seteditProfile }) => {
   const params = useParams();
   const paramsId = params.id;
-  const [profileUser, setProfileUser] = useState({});
   const { user } = useSelector((state) => state.authReducer.authData);
+  const [profileUser, setProfileUser] = useState(user);
+  console.log(profileUser, user);
 
   useEffect(() => {
     const fetchProfileUser = async () => {
@@ -28,30 +29,30 @@ const ProfileInfo = ({ seteditProfile }) => {
       fetchProfileUser();
     };
   }, [user]);
-
   const handleEdit = (e) => {
     e.preventDefault();
     seteditProfile(true);
   };
-
   return (
     <div className="Profile-Container">
       <div className="ProfileInfo">
         <h2>Info</h2>
         <div className="info-wrapper">
-          {profileUser.worksAt
-            ? ` <div className="info-list">
-            <span>
-              <UilBag />
-            </span>
-            <span>
-               Works @ <strong>${profileUser.worksAt}</strong>
-            </span>
-             
-          </div>`
-            : ""}
-          {profileUser.education
-            ? `<div className="info-list">
+          {profileUser.work ? (
+            <div className="info-list">
+              <span>
+                <UilBag />
+              </span>
+              <span>
+                Works @{" "}
+                <strong>{profileUser.work.map((data) => data.worksAt)}</strong>
+              </span>
+            </div>
+          ) : (
+            ""
+          )}
+          {profileUser.education ? (
+            <div className="info-list">
               <span>
                 {" "}
                 <UilGraduationCap />{" "}
@@ -59,12 +60,17 @@ const ProfileInfo = ({ seteditProfile }) => {
               <span>
                 Studied{" "}
                 <strong>
-                  <i>${profileUser.education.degree}</i>{" "}
+                  <i>{profileUser.education.map((data) => data.degree)}</i>{" "}
                 </strong>
-                from <strong>${profileUser.education.name}</strong>
+                from{" "}
+                <strong>
+                  {profileUser.education.map((data) => data.name)}
+                </strong>
               </span>
-            </div>`
-            : ""}
+            </div>
+          ) : (
+            ""
+          )}
 
           <div className="info-list">
             <span>
