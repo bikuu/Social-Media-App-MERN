@@ -2,7 +2,7 @@
 
 # dependencies
 
-social-media-backend/node_modules
+/node_modules
 /.pnp
 .pnp.js
 # testing
